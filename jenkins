@@ -1,0 +1,17 @@
+pipeline() {
+ agent any
+   stages{
+     stage('build_image'){
+       step{
+          sh "docker build -t kar_image ."
+        }
+}
+stage('create container'){
+ step{
+  sh "docker run -it --name k1 -p 5000:80 kar_image /bin/bash"
+}
+}
+
+}
+}
+

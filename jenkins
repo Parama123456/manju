@@ -1,9 +1,18 @@
 pipeline() {
  agent any
    stages{
+   stage('clean up')
+        steps {
+        sh '''
+           docker rm k1
+           docker rmi kar_image
+        '''
+        }
+        }
+        
      stage('build_image'){
        step{
-          sh "docker build -t kar_image ."
+          sh "docker build -t kar_image"
         }
 }
 stage('create container'){

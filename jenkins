@@ -12,9 +12,13 @@ pipeline() {
         
      stage('build_image'){
        steps{
-          sh "docker build -t kar_image ."
+          sh ''' 
+          docker build -t kar_image .
+          docker tag kar_image:latest karthik7996/kar_image:latest
+          '''
         }
 }
+
 stage('create container'){
  steps{
   sh '''

@@ -4,7 +4,7 @@ pipeline() {
    stage('clean up') {
         steps {
         sh '''
-           docker rm k1
+           docker rm -f k1
            docker rmi kar_image
         '''
         }
